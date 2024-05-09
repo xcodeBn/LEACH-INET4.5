@@ -27,6 +27,8 @@
 #include "inet/routing/base/RoutingProtocolBase.h"
 #include "inet/routing/leach/LeachPkts_m.h"
 #include "inet/routing/leach/Leach.h"
+#include "inet/networklayer/common/NetworkInterface.h"
+
 
 namespace inet {
 
@@ -39,7 +41,7 @@ public:
     virtual ~LeachBS();
 
     int interfaceId = -1;
-    InterfaceEntry *interface80211ptr = nullptr;
+    NetworkInterface *interface80211ptr = nullptr;
     IInterfaceTable *ift = nullptr;
     unsigned int sequencenumber = 0;
     cModule *host = nullptr;
@@ -54,7 +56,7 @@ protected:
     virtual void handleCrashOperation(LifecycleOperation *operation) override  { stop(); }
     void start();
     void stop();
-    void finish();
+    void finish() override;
 
     void addToPacketRecLog(string fingerprint);
 

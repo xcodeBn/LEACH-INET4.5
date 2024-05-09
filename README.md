@@ -5,6 +5,11 @@ The code in this repository is an implementation of it for the [INET Framework](
 
 Unlike the standard LEACH protocol, the implemented version uses IEEE 802.15.4 standard to manage to the Physical and Data-Link layers. However as described in the original paper, the setup phase runs on CSMA with the steady state phase operating on slotted TDMA. Accordingly the stages are as follows;
 
+
+
+# UPDATED TO INET4.5,TESTING NOT DONE YET. 
+
+
 <figure>
     <img src="images/LEACH-stages-new.png">
 </figure>

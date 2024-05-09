@@ -9,6 +9,8 @@
 #include <string.h>
 #include <vector>
 #include <algorithm>
+#include "inet/networklayer/common/NetworkInterface.h"
+
 
 #include "inet/common/INETDefs.h"
 #include "inet/common/packet/Packet.h"
@@ -45,7 +47,7 @@ class INET_API Leach : public RoutingProtocolBase
     cMessage *event = nullptr;
     cPar *broadcastDelay = nullptr;
     std::list<ForwardEntry *> *forwardList  = nullptr;
-    InterfaceEntry *interface80211ptr = nullptr;
+    NetworkInterface *interface80211ptr = nullptr;
     int interfaceId = -1;
     unsigned int sequencenumber = 0;
     simtime_t routeLifetime;
@@ -53,7 +55,7 @@ class INET_API Leach : public RoutingProtocolBase
 
     Ipv4Address idealCH;
 
-    cMessage *event = nullptr;
+
 
     simsignal_t subIntervalTot;
 
@@ -121,7 +123,7 @@ class INET_API Leach : public RoutingProtocolBase
     void start();
     void stop();
     virtual void refreshDisplay() const override;
-    void finish();
+    void finish() override ;
     enum SelfMsgKinds { SELF = 1, DATA2CH, DATA2BS };
 
     double generateThresholdValue(int subInterval);
